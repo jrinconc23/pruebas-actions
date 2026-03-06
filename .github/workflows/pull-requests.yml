@@ -38,8 +38,12 @@ jobs:
     needs: job1
     runs-on: ubuntu-latest
     steps:
-      - name: automerge
-        uses: "pascalgn/automerge-action@4536e8847eb62fe2f0ee52c8fa92d17aa97f932f"
+      - id: automerge
+        name: automerge
+        uses: "pascalgn/automerge-action@v0.16.4"
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-          MERGE_LABELS: ""
+      - name: feedback
+        if: ${{ steps.automerge.outputs.mergeResult == 'merged' }}
+        run: |
+          echo "Pull request ${{ steps.automerge.outputs.pullRequestNumber }} merged!"
