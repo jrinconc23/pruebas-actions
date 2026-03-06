@@ -5,6 +5,7 @@ from modelos.modelos import Persona
 
 class PersonaTestCase(unittest.TestCase):
 
+   #Comentario para probar el job de github actions
    def setUp(self):
       self.persona1 = Persona(nombre='Alejandra', edad=25)
       self.persona2 = Persona(nombre='Diego', edad=22)
