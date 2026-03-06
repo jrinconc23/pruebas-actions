@@ -1,6 +1,7 @@
 name: Pruebas unitarias
 on:
-  branches: [ main ]
+  push:
+    branches: [ main ]
 
 jobs:
   job1:
